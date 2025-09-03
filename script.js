@@ -7,7 +7,14 @@ async function sha256(message) {
     const hashArray = Array.from(new Uint8Array(hashBuffer));
     return hashArray.map(b => b.toString(16).padStart(2, "0")).join("");
 }
-
+function togglePassword() {
+    const passwordInput = document.getElementById("password");
+    if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+    } else {
+        passwordInput.type = "password";
+    }
+}
 async function login() {
     const user = document.getElementById("username").value.trim();
     const pass = document.getElementById("password").value;
